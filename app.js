@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const authRoutes = require("./routes/auth");
 const protectedRoute = require("./routes/protectedRoute");
+const employeeRoutes = require('./routes/employee');
 
 const mongoString = process.env.DATABASE_URL;
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", authRoutes);
+app.use("/employee", employeeRoutes);
 app.use("/protected", protectedRoute);
 const PORT = process.env.PORT || 3000;
 
