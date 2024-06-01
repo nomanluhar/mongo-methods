@@ -52,6 +52,10 @@ const employeeSchema = new mongoose.Schema({
     ]
 });
 
+// Create a text index on the fields you want to query with $text
+employeeSchema.index({ firstName: 'text', lastName: 'text', email: 'text' });
+
+
 const Employee = mongoose.model('Employee', employeeSchema);
 
 module.exports = Employee;
